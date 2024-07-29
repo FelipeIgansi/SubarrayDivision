@@ -2,12 +2,11 @@ fun birthday(arr: Array<Int>, d: Int, m: Int): Int {
     // Write your code here
     var count = 0
 
-    for (i in 0..arr.size-1) {
-        val newArray = arr.sliceArray(IntRange(i, (i+(m - 1))))
-        val result = newArray.sum()
-        if (result == d) count++
-        if (i >= (arr.size-m)) break
+    for (i in 0..arr.size - m) {
+        val sum = arr.sliceArray(i until i + m).sum()
+        if (sum == d) count++
     }
+
 
     return count
 }
